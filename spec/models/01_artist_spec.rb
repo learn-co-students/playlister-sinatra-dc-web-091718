@@ -32,6 +32,11 @@ describe "Artist" do
     expect(@artist.slug).to eq("taylor-swift")
   end
 
+  it "can slugify with special characters" do
+    artist = Artist.create(name: "Will.i.am Foo")
+    expect(artist.slug).to eq("william-foo")
+  end
+
   describe "Class methods" do
     it "given the slug can find an Artist" do
       slug = "taylor-swift"
